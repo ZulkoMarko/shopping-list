@@ -1,7 +1,7 @@
 const itemForm=document.getElementById("item-form");
 const itemInput=document.getElementById("item-input");
 const itemList=document.getElementById("item-list");
-
+const clearButton=document.getElementById("clear");
 
 function addItem(e){
 e.preventDefault();
@@ -37,6 +37,13 @@ icon.className=classes;
 return icon;
 }
 
+function clearItems(){
+  while(itemList.firstChild){
+    itemList.removeChild(itemList.firstChild);
+  }
+}
+
 //Event listener
 
 itemForm.addEventListener("submit", addItem);
+clearButton.addEventListener("click", clearItems);
